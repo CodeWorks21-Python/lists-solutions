@@ -1,5 +1,7 @@
-# name:
 # author:
+# date:
+
+from random import randint
 
 # -------------------- Section 1 ------------------------- #
 # ------------------ List Creation ----------------------- #
@@ -15,7 +17,13 @@ print('Creating an Empty List' '\n')
 #   2. Print the lists.
 #
 # WRITE CODE BELOW
+list1 = []
+list2 = list()
 
+print(
+    f'list1 / {list1}' '\n'
+    f'list2 / {list2}'
+)
 
 print('\n' 'Creating a Pre-Populated List' '\n')
 # 2. Creating a Pre-Populated List
@@ -34,7 +42,20 @@ print('\n' 'Creating a Pre-Populated List' '\n')
 #
 # WRITE CODE BELOW
 integers = [1, 15, -4, -26, 34]
+floats = [2.4, -0.442, 4.93, 3.3224, 8.431]
+booleans = [True, False, True]
+animals = ['pangolin', 'red panda', 'bat-eared fox']
+objects = ['seal', 45, False]
+chars = list('this text will be converted to a list!')
 
+print(
+    f'integers / {integers}' '\n'
+    f'floats   / {floats}' '\n'
+    f'booleans / {booleans}' '\n'
+    f'animals  / {animals}' '\n'
+    f'objects  / {objects}' '\n'
+    f'chars    / {chars}'
+)
 
 # -------------------- Section 2 ------------------------- #
 # ---------------- List Modification --------------------- #
@@ -55,7 +76,18 @@ print('Accessing and Modifying a List' '\n')
 #
 # WRITE CODE BELOW
 integers[2] = 44
+floats[4] = .543657
+booleans[0] = not booleans[0]
+animals[0] = 'ferrets'
+objects[2] = 'cat'
 
+print(
+    f'integers / {integers}' '\n'
+    f'floats   / {floats}' '\n'
+    f'booleans / {booleans}' '\n'
+    f'animals  / {animals}' '\n'
+    f'objects  / {objects}'
+)
 
 print('\n' 'Append, Insert, and Remove' '\n')
 # 2. Accessing and Modifying a List
@@ -73,7 +105,18 @@ print('\n' 'Append, Insert, and Remove' '\n')
 #
 # WRITE CODE BELOW
 integers.append(25)
+floats.append(7.554431)
+booleans.remove(False)
+animals.insert(0, 'pangolin')
+objects.insert((len(objects) - 1) // 2, False)
 
+print(
+    f'integers / {integers}' '\n'
+    f'floats   / {floats}' '\n'
+    f'booleans / {booleans}' '\n'
+    f'animals  / {animals}' '\n'
+    f'objects  / {objects}'
+)
 
 print('\n' 'List Concatenation' '\n')
 # 3. List Concatenation
@@ -96,7 +139,14 @@ example_duplication = ['cat'] * 5
 print(
     '\n'
     f'example_concatenation | {example_concatenation}' '\n'
-    f'example_duplication | {example_duplication}' '\n'
+    f'example_duplication  | {example_duplication}' '\n'
+)
+nums = integers + floats
+animals2 = animals * 3
+
+print(
+    f'nums    | {nums}' '\n'
+    f'animals | {animals2}'
 )
 
 
@@ -115,7 +165,15 @@ print('Looping' '\n')
 #   An example has been shown below:
 #
 # WRITE CODE BELOW
+print('via in range(len(animals))')
+for i in range(len(animals)):
+    print(animals[i])
 
+print()
+
+print('for num in nums')
+for num in nums:
+    print(num)
 
 # -------------------- Section 4 ------------------------- #
 # ------------------ Comprehension ----------------------- #
@@ -137,14 +195,26 @@ print('Dice - Statistics' '\n')
 # The beginning of the loop running 5 times has been done for you. Be sure to finish it.
 #
 # WRITE CODE BELOW
-from random import randint
 
-size = 5
-rolls = []
 
-for i in range(size):
-    pass  # finish the loop
+def print_rolls(rolls_, size_):
+    print(f'rolls | {rolls_}')
+    print(f'size  | {size_}')
+    print(f'1     | total - {rolls_.count(1)}\t\t| rate of appearance - {"{:.2%}".format(rolls_.count(1) / size_)}')
+    print(f'2     | total - {rolls_.count(2)}\t\t| rate of appearance - {"{:.2%}".format(rolls_.count(2) / size_)}')
+    print(f'3     | total - {rolls_.count(3)}\t\t| rate of appearance - {"{:.2%}".format(rolls_.count(3) / size_)}')
+    print(f'4     | total - {rolls_.count(4)}\t\t| rate of appearance - {"{:.2%}".format(rolls_.count(4) / size_)}')
+    print(f'5     | total - {rolls_.count(5)}\t\t| rate of appearance - {"{:.2%}".format(rolls_.count(5) / size_)}')
+    print(f'6     | total - {rolls_.count(6)}\t\t| rate of appearance - {"{:.2%}".format(rolls_.count(6) / size_)}')
+    print()
 
-print(f'rolls | {rolls}')
-print(f'1\t| total - {rolls.count(1)}\t\t| rate of appearance - {"{:.2%}".format(rolls.count(1) / size)}')
-# finish the rest!
+
+def roll_dice(rolls_, num_rolls):
+    for i in range(size):
+        rolls.append(randint(1, 6))
+
+
+for size in [5, 10, 100, 1000]:
+    rolls = []
+    roll_dice(rolls, size)
+    print_rolls(rolls, size)

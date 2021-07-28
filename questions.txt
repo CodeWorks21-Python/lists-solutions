@@ -3,27 +3,63 @@ date:
 
 1 - What is a List?
 
+    A list is a mutable ordered sequence of objects.
 
 2 - How can you create an empty list? What about a pre-populated list?
+
+    Empty list can be created via list displays or the list() function.
+    list_name = []
+    list_name = list()
+
+    A pre-populated list can be made by adding objects within the list displays, or by supplying a sequence to the list
+    function.
+    list_name = [object0, object1, object2, ...]
+    list_name = list(string)
 
 
 3 - How do you access a list?
 
+    We use the index operators, and supply an index (position).
+
+    list_name[index]
 
 4 - How do you add items to a list? Remove items?
 
+    We can add items to a list using the append() or insert() methods.
+
+    We can remove items by using the remove() or clear() methods.
 
 5 - What happens if you got out of bounds with a list?
 
+    You cause an IndexError.
 
 6 - Why are lists useful to us, as opposed to strings?
 
+    Lists are mutable, meaning we can change the contents of the list whenever we want.
 
-7 - Where a position in a string represents a character, a position in a list represents a ______?
 
+7 - Where a position in a string represents a character, a position in a list represents an ______?
+
+    object
 
 8 - Which of the methods for lists return a value? Which methods for lists operate on the list (change it)?
 Documentation: https://www.w3schools.com/python/python_lists_methods.asp
 
+    Returns a Value
+        - copy()
+        - index()
+        - pop()
+
+    Operates on the List
+        - append()
+        - clear()
+        - extend()
+        - insert()
+        - pop()
+        - remove()
+        - reverse()
+        - sort()
 
 9 - Why might you start with an empty list when writing a program?
+
+    By starting with an empty list, we can add to it as we move through our program.
