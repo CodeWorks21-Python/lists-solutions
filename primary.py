@@ -210,8 +210,8 @@ def print_rolls(rolls_, size_):
 
 
 def roll_dice(rolls_, num_rolls):
-    for i in range(size):
-        rolls.append(randint(1, 6))
+    for i in range(num_rolls):
+        rolls_.append(randint(1, 6))
 
 
 for size in [5, 10, 100, 1000]:
